@@ -1,5 +1,9 @@
-package com.bookStore;
+package test.com.bookStore;
 
+import com.AllComBeanConfig;
+import com.bookStore.Box;
+import com.bookStore.English;
+import com.bookStore.Math;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +14,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(locations = "classpath:applicationContext.xml")
-@ContextConfiguration(classes = BookStoreConfig.class)
-public class SpringBeans {
+@ContextConfiguration(classes = AllComBeanConfig.class)
+public class SpringBeans2 {
 
     @Autowired
     ApplicationContext context;
 
     @Autowired
     private Math math;
-
-    @Autowired
-    private Box box;
 
     public static void main(String[] args) {
 
@@ -36,11 +37,6 @@ public class SpringBeans {
 
         English english=(English)context.getBean("englishBook");
         english.show();
-    }
-
-    @Test
-    public void testBox(){
-        box.showBox();
     }
 
 }
